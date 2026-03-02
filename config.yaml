@@ -1,0 +1,50 @@
+# ============================================================
+# Kalshi Bot — Configuration
+# ============================================================
+paper_trading: true
+
+telegram_to: "7591705971"
+scan_interval: 60
+
+kalshi_api_host: "https://api.elections.kalshi.com/trade-api/v2"
+
+# API Key auth (RSA) — fill in after generating keys (see README)
+api_key_id: ""
+private_key_path: "kalshi_private_key.pem"
+
+# ============================================================
+# Strategies
+# ============================================================
+strategies:
+
+  endgame_arb:
+    enabled: true
+    description: "Buy near-certain markets before resolution"
+    min_yes_price: 95         # cents (95 = $0.95)
+    max_yes_price: 99         # cents
+    min_volume_24h: 500       # contracts
+    max_position_usd: 20
+    min_return_pct: 0.5
+
+  intramarket_arb:
+    enabled: true
+    description: "Buy YES+NO when sum < 100 cents"
+    min_gap_cents: 2          # min gap (e.g. 2 = $0.02 profit per pair)
+    max_position_usd: 50
+    min_liquidity: 200
+
+  momentum:
+    enabled: false
+    description: "Trade markets moving fast on high volume"
+    min_volume_24h: 5000
+    min_price_move_cents: 8   # min move in cents since open
+    max_position_usd: 30
+
+# ============================================================
+# Risk Management
+# ============================================================
+risk:
+  max_open_positions: 10
+  max_total_exposure_usd: 200
+  stop_loss_pct: 30
+  max_daily_loss_usd: 50

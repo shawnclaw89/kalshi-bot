@@ -1,0 +1,4 @@
+requests
+pyyaml
+kalshi-python
+cryptography
