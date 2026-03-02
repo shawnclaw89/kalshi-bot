@@ -12,6 +12,7 @@ STRATEGY_MODULES = {
     "momentum":        "strategies.momentum:MomentumStrategy",
     "whale_follow":    "strategies.whale_follow:WhaleFollowStrategy",
     "polymarket_tail": "strategies.polymarket_tail:PolymarketTailStrategy",
+    "agent_signal":    "strategies.agent_signal:AgentSignalStrategy",
     # Add new strategies here
 }
 
